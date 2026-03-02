@@ -69,27 +69,6 @@ src/
 └── index.css              # Tailwind directives + global custom styles
 ```
 
----
-
-## Design & Technical Decisions
-
-### Architecture
-
-- **Client-side only** – No backend required. All data is fetched directly from the PokéAPI at runtime.
-- **Separate browse vs. search modes** – Browsing is paginated (offset-based). Searching queries the API by exact Pokémon name. This keeps "Load More" from interfering with search results.
-- **Detail fetching on demand** – Detailed stats, abilities, height, and weight are only fetched when a card is clicked, keeping the initial list load lean.
-
-### Styling
-
-- **Tailwind CSS v3** with a dark, premium aesthetic (`#0f0f1a` background), glassmorphism cards, and red (`#e74c3c`) as the primary accent mirroring the classic Pokéball.
-- **Per-type color accents** – Each Pokémon card has a subtle gradient tinted to its primary type (18 types mapped to distinct colours).
-- **Animated stat bars** – Bars animate from 0% to their target width on mount, with a dynamic gradient colour (red → orange → green) based on the stat percentage.
-
-### Performance
-
-- **`loading="lazy"`** on all card images, letting the browser defer off-screen fetches.
-- **Official artwork sprites** from the PokeAPI GitHub CDN (higher quality than default sprites).
-- **Fallback image** – If the artwork URL fails, falls back to the standard sprite.
 
 ---
 
